@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require('../../models/users');
 // Run npm install mongodb and require mongodb and MongoClient class
-const mongodb = require('mongodb').MongoClient;
+const db = require('../../config/connection');
 
 //api.users 
 
