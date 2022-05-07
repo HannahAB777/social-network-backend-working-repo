@@ -1,7 +1,8 @@
 const { Schema, model } = require("mongoose");
 
 const validator = function(email) {
-  return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);};
+  return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+};
 
 
 const userSchema = new Schema(

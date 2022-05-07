@@ -1,11 +1,16 @@
 const User = require('./users');
 const { Schema, model } = require("mongoose");
+const moment = require('moment');
+
+function currentDateTime(date){
+  moment(date).format('MMMM Do YYYY, h:mm:ss a');
+};
 
 const reactionSchema = new Schema(
     {
       reactionId: {
         type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId()
+        default: new Types.ObjectId(),
       },
 
       reactionBody: {
@@ -22,7 +27,8 @@ const reactionSchema = new Schema(
       //},
     createdAt: {
       type: Date,
-      default: Date.now
+      default: Date.now,
+      get: currentDateTime
     },
 },
 {

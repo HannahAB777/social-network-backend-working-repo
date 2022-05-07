@@ -1,6 +1,11 @@
 const User = require('./users');
 const { Schema, model } = require("mongoose");
 const reactionSchema = require('./reaction');
+const moment = require("moment");
+
+function currentDateTime(date){
+  moment(date).format('MMMM Do YYYY, h:mm:ss a');
+};
 
 const thoughtSchema = new Schema(
     {
@@ -12,7 +17,8 @@ const thoughtSchema = new Schema(
       },
       createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: currentDateTime
       },
       // getter method to get time stamp
       userName: {
@@ -24,6 +30,7 @@ const thoughtSchema = new Schema(
 },
 {   timestamps: true,
     id: false,
+    getters: true,
     toJSON: {
       virtuals: true
     },
