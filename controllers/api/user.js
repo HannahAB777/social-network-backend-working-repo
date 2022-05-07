@@ -33,8 +33,8 @@ router.get("/:id", async (req, res) => {
 });
 
 //put to update a user by its id
-router.post('/:id', async (req, res) =>{
-  await User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+router.put('/:id', async (req, res) =>{
+  await User.findByIdAndUpdate(req.params.id, req.body, {new: true}).select("-__v")
   .then((updatedUser) => res.json(updatedUser))
   .catch((err) => res.status(500).json(err));
 });
