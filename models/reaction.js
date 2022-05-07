@@ -36,9 +36,9 @@ const reactionSchema = new Schema(
 //  // find one user
 //  const userId = this.userId;
 //
-//  User.findOne({
+//  awaitUser.findOne({
 //    _id: userId
-//  })
+//  });
 //
 //  // get the user name
 //
